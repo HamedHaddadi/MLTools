@@ -1,0 +1,51 @@
+# iput file for Dense Autoencoder setup
+# tested for MNIST image -> image predictions
+# the main title key:
+model: DenseAE
+
+# #### dataset to initialize the classifier #### #
+#  source: MNIST
+#   use: image-to-image (no label is required)  
+data_configs:
+  source: MNIST
+  use: image-to-image
+
+# #### network configuration input key/values #### #
+# : compression: bottlenck to input ratio
+network_configs:
+  compression: 8
+  scaling: none
+  activations: relu-sigmoid 
+  initializer: uniform-variance 
+  weight_normal: False
+  scaling_info: none 
+
+# #### optimizer configuration input key/values #### #
+optimizer_configs:
+  optimizer: Adam
+  rate: 0.001
+
+# #### train configuration input 
+#. num_predictions: number of image generated and saved during training
+train_configs:
+  num_epochs: 500 
+  output_every: 100
+  batch: 0.25
+  save: /Users/hamedhaddadi/Documents/PINNPDE/results
+  num_predictions: 4
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+

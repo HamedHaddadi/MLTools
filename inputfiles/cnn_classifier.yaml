@@ -1,0 +1,54 @@
+# input file for CNN classifier
+# type of classifier: 
+#   avaiable option: PlainImage 
+model: PlainImage
+
+# #### dataset to initialize the classifier #### #
+#  available option: MNIST 
+#     scale => [0 .. 1] scaling or actual pixel values
+#     one_hot: encoding True or False; if False then sparse_crossentropy must be chosen for loss
+data_configs:
+  source: MNIST
+  scale: True
+  one_hot: False
+# #### network configuration inputs #### #
+# *. num_filters: a list of # of filters of CNN
+#             len(num_filters) = # of CNN layers
+# *. dense_layers: a list of # of neurons; if None then one layer is automatically added 
+# *. pool_type: max, avg pool
+network_configs:
+ num_filters: [25, 50]
+ dense_layers: [50]
+ cnn_strides: [1,1]
+ kernels: [1,1]
+ pool_type: max 
+ pool_kernels: 2
+ pool_strides: 2
+ cnn_activation: relu
+ dense_activation: relu 
+ initializer: xavier 
+ bias_at_zero: False 
+# #### network loss information #### #
+# available options: sparse-crossentropy/categorical-crossentropy
+#      is one_hot encoding is disabled choose sparse
+loss_configs:
+  loss: sparse-crossentropy
+# #### configure optimizer #### #
+# optimizer: SGD or Adam
+# note that momentum does not apply to Adam
+optimizer_configs:
+  optimizer: SGD
+  rate: 0.005
+  momentum: 0.9
+# #### train inputs #### #
+# num_epochs: total number of training cycles
+# batch: fraction of datasets used for training
+# output_every: generates loss and accuracy every N epochs
+train_configs:
+  num_epochs: 500
+  batch: 0.25
+  output_every: 50
+  save: /Users/hamedhaddadi/Documents/PINNPDE/results
+
+
+
