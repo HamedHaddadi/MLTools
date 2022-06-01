@@ -1,7 +1,7 @@
-# input file for Dense Autoencoder setup
+# input file for CNN Autoencoder setup
 # tested for MNIST image -> image predictions
 # the main title key:
-model: DenseAE
+model: CNNAE
 
 # #### dataset to initialize the classifier #### #
 #  source: MNIST
@@ -9,17 +9,19 @@ model: DenseAE
 data_configs:
   source: MNIST
   use: image-to-image
+  format: image
+  data_path: '/content/drive/MyDrive/MLTools/MLTools/datasets'
 
 # #### network configuration input key/values #### #
 # : compression: bottlenck to input ratio
 network_configs:
-  compression: 8
-  scaling: none
-  activations: relu-sigmoid 
-  initializer: uniform-variance 
-  weight_normal: False
-  scaling_info: none 
-
+  filters: [16,32]
+  activation: relu 
+  initializer: normal-variance 
+  bias_at_zero: True
+  strides: [2,2]
+  kernels: [2,2]
+   
 # #### optimizer configuration input key/values #### #
 optimizer_configs:
   optimizer: Adam
@@ -29,23 +31,7 @@ optimizer_configs:
 #. num_predictions: number of image generated and saved during training
 train_configs:
   num_epochs: 500 
-  output_every: 100
+  output_every: 5
   batch: 0.25
-  save: /Users/hamedhaddadi/Documents/PINNPDE/results
-  num_predictions: 4
-
-
-  
-  
-
-
-
-
-
-
-
-
-
-
-
-
+  save: null  
+  num_predictions: 2

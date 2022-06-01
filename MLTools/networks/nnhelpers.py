@@ -3,7 +3,21 @@ from tensorflow.keras import initializers, activations
 import numpy as np
 
 np.random.seed(1234)
-tf.compat.v1.set_random_seed(1234)
+tf.compat.v1.set_random_seed(1234
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 class DenseNetHelper:
 

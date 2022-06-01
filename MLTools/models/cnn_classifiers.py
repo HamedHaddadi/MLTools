@@ -49,7 +49,6 @@ class PlainImageClassifier:
         net_kw = {key:val for key,val in locals().items() if key in self.network_keys}
         net_kw.update({'target_shape': self._data.target_shape})
         net_kw.update({'input_shape': self._data.input_shape})
-        print('target shape is = ', self._data.target_shape)
         self.network = CNNNet(**net_kw)
         
     def configure_placeholder(self):

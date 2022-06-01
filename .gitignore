@@ -1,0 +1,8 @@
+# all DS files ignored
+.DS_Store
+
+# notebooks
+*ipynb
+
+# pycache
+*__pycache__
